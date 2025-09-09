@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class ChickenScripts : MonoBehaviour
 {
-    public Rigidbody2D myRigidbody;
+    private Rigidbody2D myRigidbody;
+    public float jumpForce = 5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gameObject.name = "Guy Linha";
+        myRigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -14,7 +15,7 @@ public class ChickenScripts : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)==true)
         {
-            myRigidbody.linearVelocity = Vector2.up*10;
+            myRigidbody.linearVelocity = new Vector2(myRigidbody.linearVelocity.x, jumpForce);
         }
     }
 }
